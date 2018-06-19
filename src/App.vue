@@ -1,17 +1,25 @@
 <template>
-  <div>
-     <nav-bar logo="Social" url="#" cor="green darken-1" />
-    <router-view/>
-  </div>
+  <span>
+    <header>
+      <nav-bar-vue logo="Social" url="#" cor="green darken-1" />
+    </header>
+
+    <main>
+      <div class="container">
+        <router-view/>
+      </div>
+    </main>
+
+  </span>
 </template>
 
 <script>
-import NavBar from '@/components/layouts/NavBar'
+import NavBarVue from '@/components/layouts/NavBarVue'
 
 export default {
   name: "App",
   components:{
-    NavBar
+    NavBarVue
   }
 };
 </script>

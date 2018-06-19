@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: "NavBar",
+    name: "NavBarVue",
     props: ['logo','url','cor'],
     data() {
       return {}
