@@ -4,22 +4,15 @@
     <div class="card-content">
       <div class="row valign-wrapper">
         <grid-vue tamanho="1">
-          <img src="https://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+          <img :src="perfil" :alt="nome" class="circle responsive-img">
         </grid-vue>
         <grid-vue tamanho="11">
           <span class="black-text">
-            <strong>Maria Silva</strong> - <small>20/06/2018 22:10</small>
+            <strong>{{nome}}</strong> - <small>{{data}}</small>
           </span>
         </grid-vue>
       </div>
-      <div class="card-image">
-        <img src="https://materializecss.com/images/sample-1.jpg">
-        <span class="card-title">Card Title</span>
-      </div>
-      <div class="card-content">
-        <p>I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively.</p>
-      </div>
+      <slot></slot>
     </div>
     <div class="card-action">
       <p>
@@ -38,7 +31,7 @@
     components:{
       GridVue
     },
-    props: [],
+    props: ['perfil','nome','data'],
     data() {
       return {}
     }
