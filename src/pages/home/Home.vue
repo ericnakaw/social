@@ -1,21 +1,33 @@
 <template>
-  <card-conteudo-vue perfil="https://materializecss.com/images/yuna.jpg" nome="Maria Silva" data="20/06/2018 22:30">
+  <span>
+    <div class="row">
+      <grid-vue class="input-field" tamanho="12">
+        <textarea id="textarea1" class="materialize-textarea"></textarea>
+        <label for="textarea1">O que está acontecendo?</label>
+      </grid-vue>
+      <p>
+        <grid-vue class="btn waves-effect waves-light" tamanho="2 offset-s10">Publicar</grid-vue>
+      </p>
+    </div>
+    <card-conteudo-vue perfil="https://materializecss.com/images/yuna.jpg" nome="Maria Silva" data="20/06/2018 22:30">
+      <card-detalhe-vue img="https://materializecss.com/images/sample-1.jpg" titulo="" txt="I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.">
+      </card-detalhe-vue>
 
-    <card-detalhe-vue img="https://materializecss.com/images/sample-1.jpg" titulo="" txt="I am a very simple card. I am good at containing small bits of information.
-      I am convenient because I require little markup to use effectively.">
-    </card-detalhe-vue>
-
-  </card-conteudo-vue>
+    </card-conteudo-vue>
+  </span>
 </template>
 
 <script>
+
   import CardConteudoVue from '@/components/social/CardConteudoVue'
   import CardDetalheVue from '@/components/social/CardDetalheVue'
+  import GridVue from '@/components/layouts/GridVue'
   export default {
     name: "Home",
     components: {
       CardConteudoVue,
-      CardDetalheVue
+      CardDetalheVue,
+      GridVue
     },
     data() {
       return {};
