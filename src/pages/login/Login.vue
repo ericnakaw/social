@@ -1,24 +1,29 @@
 <template>
-  <site-template-vue>
-    <publicar-conteudo-vue />
-    <card-conteudo-vue perfil="https://materializecss.com/images/yuna.jpg" nome="Maria Silva" data="20/06/2018 22:30">
-      <card-detalhe-vue img="https://materializecss.com/images/sample-1.jpg" titulo="" txt="I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.">
-      </card-detalhe-vue>
 
-    </card-conteudo-vue>
-  </site-template-vue>
+  <login-template-vue>
+
+    <h2>Login</h2>
+
+    <input type="text" placeholder="E-mail" value="">
+    <input type="text" placeholder="Password" value="">
+    <button type="button" class="btn">Entrar</button>
+
+  </login-template-vue>
+
 </template>
 
 <script>
 
+  import LoginTemplateVue from '@/templates/LoginTemplateVue'
   import SiteTemplateVue from '@/templates/SiteTemplateVue'
   import CardConteudoVue from '@/components/social/CardConteudoVue'
   import CardDetalheVue from '@/components/social/CardDetalheVue'
   import PublicarConteudoVue from '@/components/social/PublicarConteudoVue'
 
   export default {
-    name: "Home",
+    name: "Login",
     components: {
+      LoginTemplateVue,
       SiteTemplateVue,
       CardConteudoVue,
       CardDetalheVue,
