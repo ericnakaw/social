@@ -8,16 +8,19 @@
 
     <span slot="principal">
 
-     <h2>Login</h2>
+      <h2>Cadastro</h2>
 
-     <input type="text" placeholder="E-mail" value="">
-     <input type="password" placeholder="Senha" value="">
-     <button class="btn">Entrar</button>
-     <router-link class="btn orange" to="/cadastro">Cadastre-se</router-link>
+        <input type="text" placeholder="Nome" value="">
+        <input type="text" placeholder="E-mail" value="">
+        <input type="password" placeholder="Senha" value="">
+        <input type="password" placeholder="Confirme sua senha" value="">
+        <button class="btn">Enviar</button>
+        <router-link class="btn orange" to="/login">Já tenho conta</router-link>
+      </span>
 
-   </span>
+    </span>
 
- </login-template-vue>
+  </login-template-vue>
 
 </template>
 
@@ -26,7 +29,7 @@
   import LoginTemplateVue from '@/templates/LoginTemplateVue'
 
   export default {
-    name: "Login",
+    name: "Cadastro",
     components: {
       LoginTemplateVue
     },
