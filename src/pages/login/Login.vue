@@ -46,6 +46,16 @@
         })
         .then(response => {
           console.log(response)
+          if(response.data.token){
+            //Login com sucesso
+            console.log('Login com sucesso')
+          }else if(response.data.status == false){
+            //Login invalido
+            console.log('Login invalido')
+          }else{
+            //Erros de validação
+            console.log('Erros de validação')
+          }
         })
         .catch(e => {
           console.log(e)
