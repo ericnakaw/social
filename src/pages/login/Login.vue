@@ -52,13 +52,20 @@
           }else if(response.data.status == false){
             //Login invalido
             console.log('Login invalido')
+            alert('Usuario ou Senha invalidos')
           }else{
             //Erros de validação
             console.log('Erros de validação')
+            let erros = '';
+            for(let erro of Object.values(response.data)){
+              erros += erro + " ";
+            }
+            alert(erros);
           }
         })
         .catch(e => {
           console.log(e)
+          alert("Erro! Tente novamente mais tarde!")
         })
       }
     }
