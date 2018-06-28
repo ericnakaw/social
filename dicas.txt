@@ -1,0 +1,46 @@
+API com Laravel
+- instalar o Laravel
+composer create-project --prefer-dist laravel/laravel webservice "5.5.*"
+
+composer require laravel/passport=~4.0
+
+- configurar o banco de dados ...
+
+php artisan migrate
+
+php artisan passport:install
+
+- colocar no User
+use Laravel\Passport\HasApiTokens;
+use HasApiTokens, Notifiable;
+
+- e o config\auth
+
+'api' => [
+	'driver' => 'passport',
+	'provider' => 'users'
+]
+
+- pronto...
+
+criar rotas de cadastro e de login e depois testar o acesso com token
+
+Baixar o Postman:
+
+https://www.getpostman.com/
+
+Axios: https://github.com/axios/axios
+npm install axios --save
+
+import axios from 'axios';
+
+axios.post(`http://url_api`, {
+  body: this.postBody
+})
+.then(response => {})
+.catch(e => {
+  this.errors.push(e)
+})
+
+Chrome extensions: Access-Control-Allow-Origin
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related

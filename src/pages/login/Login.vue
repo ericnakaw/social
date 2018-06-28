@@ -10,9 +10,9 @@
 
      <h2>Login</h2>
 
-     <input type="text" placeholder="E-mail" value="">
-     <input type="password" placeholder="Senha" value="">
-     <button class="btn">Entrar</button>
+     <input type="text" placeholder="E-mail" v-model="email">
+     <input type="password" placeholder="Senha" v-model="password">
+     <button class="btn" v-on:click="login()">Entrar</button>
      <router-link class="btn orange" to="/cadastro">Cadastre-se</router-link>
 
    </span>
@@ -24,16 +24,33 @@
 <script>
 
   import LoginTemplateVue from '@/templates/LoginTemplateVue'
+  import axios from 'axios'
 
   export default {
     name: "Login",
+    data() {
+      return {
+        email:'',
+        password:''
+      };
+    },
     components: {
       LoginTemplateVue
     },
-    data() {
-      return {
-
-      };
+    methods:{
+      login(){
+        console.log("ok");
+        axios.post(`http://webservice.social/api/login`, {
+          email: this.email,
+          password: this.password
+        })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      }
     }
   };
 </script>
