@@ -61,30 +61,16 @@
     },
     methods:{
       perfil(){
-        axios.post(`http://webservice.social/api/perfil`, {
+        axios.put(`http://webservice.social/api/perfil`, {
           name: this.name,
           email: this.email,
           password: this.password,
           password_confirmation: this.password_confirmation,
-        })
+        },{"headers":{"authorization":"Bearer " + this.usuario.token}})
         .then(response => {
-          //console.log(response)
-          if(response.data.token){
-            //Login com sucesso
-            console.log('Cadastro realizado com sucesso')
-            sessionStorage.setItem('usuario', JSON.stringify(response.data));
-            this.$router.push('/');
-          }else if(response.data.status == false){
-            //Erro no cadastro
-            alert('Erro no cadastro')
-          }else{
-            //Erros de validação
-            let erros = '';
-            for(let erro of Object.values(response.data)){
-              erros += erro + " ";
-            }
-            alert(erros);
-          }
+
+            console.log(response.data);
+
         })
         .catch(e => {
           console.log(e)
