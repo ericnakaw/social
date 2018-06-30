@@ -3,8 +3,10 @@
     <header>
       <nav-bar-vue logo="Social" url="/" cor="green darken-1">
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/login">Entrar</router-link></li>
-        <li><router-link to="/cadastro">Cadastre-se</router-link></li>
+        <li v-if="!usuario"><router-link to="/login">Entrar</router-link></li>
+        <li v-if="!usuario"><router-link to="/cadastro">Cadastre-se</router-link></li>
+        <li v-if="usuario"><router-link to="/perfil">{{usuario.name}}</router-link></li>
+        <li v-if="usuario"><a v-on:click="logout()">Sair</a></li>
       </nav-bar-vue>
     </header>
 
@@ -49,6 +51,25 @@
       FooterVue,
       GridVue,
       CardMenuVue
+    },
+    methods:{
+      logout(){
+        sessionStorage.clear();
+        this.usuario = false;
+        this.$router.push('/login');
+      }
+    },
+    data(){
+      return {
+        usuario: false
+      }
+    },
+    created(){
+      console.log('created');
+      let usuarioAux = sessionStorage.getItem('usuario');
+      if(usuarioAux){
+        this.usuario = JSON.parse(usuarioAux);
+      }
     }
   };
 </script>

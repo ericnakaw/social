@@ -50,6 +50,7 @@
             //Login com sucesso
             console.log('Login com sucesso')
             sessionStorage.setItem('usuario', JSON.stringify(response.data));
+            this.$router.push('/');
           }else if(response.data.status == false){
             //Login invalido
             console.log('Login invalido')

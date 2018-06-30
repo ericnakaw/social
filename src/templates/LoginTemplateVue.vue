@@ -65,6 +65,7 @@
       let usuarioAux = sessionStorage.getItem('usuario');
       if(usuarioAux){
         this.usuario = JSON.parse(usuarioAux);
+        this.$router.push('/');
       }
     }
   };
