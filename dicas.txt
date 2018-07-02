@@ -44,3 +44,7 @@ axios.post(`http://url_api`, {
 
 Chrome extensions: Access-Control-Allow-Origin
 https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related
+
+Adicionar migração no Laravel
+php artisan make:migration add_imagem_table_users --table=users
+
