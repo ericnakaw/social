@@ -15,7 +15,7 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Imagem</span>
-          <input type="file">
+          <input type="file" v-on:change="salvaImagem">
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text">
@@ -48,8 +48,9 @@
         name:'',
         email:'',
         password:'',
-        password_confirmation:''
-      };
+        password_confirmation:'',
+        imagem:''
+      }
     },
     created(){
       let usuarioAux = sessionStorage.getItem('usuario');
@@ -60,15 +61,30 @@
       }
     },
     methods:{
+      salvaImagem(e){
+
+        let arquivo = e.target.files || e.dataTransfer.files;
+        if(!arquivo.length){
+          return;
+        }
+
+        let reader = new FileReader();
+        reader.onloadend = (e) => {
+          this.imagem = reader.result;
+        }
+
+        reader.readAsDataURL(arquivo[0]);
+
+      },
       perfil(){
         axios.put(`http://webservice.social/api/perfil`, {
           name: this.name,
           email: this.email,
           password: this.password,
-          password_confirmation: this.password_confirmation,
+          password_confirmation: this.password_confirmation
         },{"headers":{"authorization":"Bearer " + this.usuario.token}})
         .then(response => {
-
+          console.log(response.data);
           if(response.data.token){
 
             console.log(response.data);
