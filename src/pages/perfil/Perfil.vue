@@ -3,7 +3,7 @@
   <site-template-vue>
 
     <span slot="menuesquerdo">
-      <img src="https://static.quizur.com/i/b/5b035c77702c13.471891555b035c775c3ff9.54480388.png" alt="" class="responsive-img">
+      <img :src="usuario.imagem" alt="" class="responsive-img">
     </span>
 
     <span slot="principal">
@@ -81,13 +81,13 @@
           name: this.name,
           email: this.email,
           password: this.password,
-          password_confirmation: this.password_confirmation
+          password_confirmation: this.password_confirmation,
+          imagem: this.imagem
         },{"headers":{"authorization":"Bearer " + this.usuario.token}})
         .then(response => {
-          console.log(response.data);
           if(response.data.token){
 
-            console.log(response.data);
+            this.usuario = response.data;
             sessionStorage.setItem('usuario', JSON.stringify(response.data));
             alert('Perfil atualizado!');
 
