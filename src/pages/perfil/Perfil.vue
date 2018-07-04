@@ -21,6 +21,7 @@
           <input class="file-path validate" type="text">
         </div>
       </div>
+      <textarea class="materialize-textarea" placeholder="Descrição" v-model="descricao"></textarea>
       <input type="password" placeholder="Senha" v-model="password">
       <input type="password" placeholder="Confirme sua senha" v-model="password_confirmation">
       <button class="btn" v-on:click="perfil()">Atualizar</button>
@@ -47,6 +48,7 @@
         usuario:false,
         name:'',
         email:'',
+        descricao:'',
         password:'',
         password_confirmation:'',
         imagem:''
@@ -58,6 +60,7 @@
         this.usuario = JSON.parse(usuarioAux);
         this.name = this.usuario.name;
         this.email = this.usuario.email;
+        this.descricao = this.usuario.descricao;
       }
     },
     methods:{
@@ -80,6 +83,7 @@
         axios.put(`http://webservice.social/api/perfil`, {
           name: this.name,
           email: this.email,
+          descricao: this.descricao,
           password: this.password,
           password_confirmation: this.password_confirmation,
           imagem: this.imagem
